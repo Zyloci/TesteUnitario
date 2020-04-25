@@ -15,7 +15,7 @@ public class ContaMagica {
         return status;
     } 
 
-    public void deposito(int valor){
+    public void deposito(int valor) throws INVALID_OPER_EXCEPTION{
         switch(status){
             case 0:
                 if(valor < 0)
