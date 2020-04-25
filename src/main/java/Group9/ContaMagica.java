@@ -15,8 +15,32 @@ public class ContaMagica {
         return status;
     } 
 
-    public void deposito(int valor) throws INVALID_OPER_EXCEPTION{
-        
+    public void deposito(int valor){
+        switch(status){
+            case 0:
+                if(valor < 0)
+                    {           }
+                saldo = saldo + valor;
+                if(saldo > 49999)
+                    {status = 1;}    
+                break;
+            case 1:
+                if(valor < 0)
+                    {           }
+                saldo = saldo + valor;
+                if(saldo > 199999)
+                    {status = 2;}
+                if(saldo < 50000)
+                    {status = 0;}
+                break;
+            case 2:
+                if(valor < 0)
+                    {           }
+                saldo = saldo + valor;
+                if(saldo < 200000)
+                    {status = 1;}
+                break;
+        }
     }
 
     //void retirada(int valor) throws INVALID_OPER_EXCEPTION;
