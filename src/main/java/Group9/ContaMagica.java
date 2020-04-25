@@ -43,5 +43,21 @@ public class ContaMagica {
         }
     }
 
-    //void retirada(int valor) throws INVALID_OPER_EXCEPTION;
+    void retirada(int valor) throws INVALID_OPER_EXCEPTION
+    {
+        if((saldo - valor) > 0)
+            saldo = saldo - valor;
+        else
+        {
+            System.out.println("Operacao invalida: saldo nao pode ficar negativo!");
+            return;
+        }
+        if(status == 2 && saldo < 100000)
+            status = 1;
+        else
+        {
+            if(status == 1 && saldo < 25000)
+                status = 0;
+        }
+    }
 }
