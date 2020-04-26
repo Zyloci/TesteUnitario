@@ -1,36 +1,36 @@
-
-Relatório contendo:
-CASOS DE TESTE
-
+    ---Relatório---
+CASOS DE TESTE INICIAS
     Particionamento do Espaço de Entrada
 
-    Teste de Deposito:
+     -Teste de Deposito:
     valor<0
-    valor>=200000 && status=0(Added)
+    valor>=200000 && status=0
     valor>=0 && valor+saldo<50000 && status=0
     valor>=0 && valor+saldo>=50000 && status=0
     valor>=0 && valor+saldo<200000 && status=1
     valor>=0 && valor+saldo>=200000 && status=1
     valor>=0 && status=2
    
-    Teste de Retirada:
+     -Teste de Retirada:
     valor<0
-    saldo-valor<0(Added)
+    saldo-valor<0
     valor>=0 && saldo-valor>=0 && status=0
     valor>=0 && saldo-valor>=25000 && status=1
     valor>=0 && saldo-valor<25000 && status=1
     valor>=0 && saldo-valor>=100000 && status=2
     valor>=0 && saldo-valor<100000 && status=2
 
-    Teste de Gets:
+     -Teste de Gets:
     getSaldo
     getStatus
-    setStatus(Added)
+    setStatus
 
+ANALISE DE COBERTURA DO CÓDIGO
+    -Primeiros testes
+        Instructions Coverage 90%
+        Branch Coverage 88%
 
-relatórios de defeitos (até que todos foram eliminados)
-
-análise de cobertura do código
+NOVOS CASOS DE TESTE
 
 novos casos de teste acrescentados (com justificativa) ou justificativa para a não necessidade de acrescentar casos de teste.
 
