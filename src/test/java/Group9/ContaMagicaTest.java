@@ -17,6 +17,32 @@ public class ContaMagicaTest extends ContaMagica{
         double saldo = cM.getSaldo();
         assertEquals(saldo, 0);
     }
+    
+    @Test
+    public void getStatusTest(){
+        double saldo = cM.getStatus();
+        assertEquals(saldo, 0);
+    }
+
+    @Test
+    public void valorMenor0Deposito() throws INVALID_OPER_EXCEPTION{
+        assertThrows(INVALID_OPER_EXCEPTION.class, () -> cM.deposito(-1));
+    }
+
+    @Test
+    public void SaldoMenor50000Deposito() throws INVALID_OPER_EXCEPTION{
+        assertThrows(INVALID_OPER_EXCEPTION.class, () -> cM.deposito(-1));
+    }
+
+    /*
+        Teste de Deposito:
+    valor<0 
+    valor>=0 && valor+saldo<50000 && status=0
+    valor>=0 && valor+saldo>=50000 && status=0
+    valor>=0 && valor+saldo<200000 && status=1
+    valor>=0 && valor+saldo>=200000 && status=1
+    valor>=0 && status=2
+   */
 
     
 
