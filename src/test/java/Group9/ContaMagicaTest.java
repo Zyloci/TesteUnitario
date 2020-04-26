@@ -31,7 +31,27 @@ public class ContaMagicaTest extends ContaMagica{
 
     @Test
     public void SaldoMenor50000Deposito() throws INVALID_OPER_EXCEPTION{
-        assertThrows(INVALID_OPER_EXCEPTION.class, () -> cM.deposito(-1));
+        assertTrue(cM.getSaldo()<50000);
+    }
+
+    @Test
+    public void SaldoMaior50000Deposito() throws INVALID_OPER_EXCEPTION{
+        assertTrue(cM.getSaldo()>50000);
+    }
+
+    @Test
+    public void SaldoMenor200000Deposito() throws INVALID_OPER_EXCEPTION{
+        assertTrue(cM.getSaldo()<200000);
+    }
+
+    @Test
+    public void SaldoMaior200000Deposito() throws INVALID_OPER_EXCEPTION{
+        assertTrue(cM.getSaldo()>200000);
+    }
+
+    @Test
+    public void Status2() throws INVALID_OPER_EXCEPTION{
+        assertTrue(cM.getStatus()==2);
     }
 
     /*
