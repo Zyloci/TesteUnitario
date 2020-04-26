@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContaMagica.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TesteUnitaio</a> &gt; <a href="index.source.html" class="el_package">Group9</a> &gt; <span class="el_source">ContaMagica.java</span></div><h1>ContaMagica.java</h1><pre class="source lang-java linenums">package Group9;
+
+public class ContaMagica {
+    public static final int SILVER = 0;
+    public static final int GOLD = 1;
+    public static final int PLATINUM = 2;
+    public static double saldo;
+    public static int status;
+
+<span class="fc" id="L10">    public ContaMagica(){</span>
+<span class="fc" id="L11">        saldo = 0;</span>
+<span class="fc" id="L12">        status = 0;</span>
+<span class="fc" id="L13">    }</span>
+
+    public double getSaldo(){
+<span class="fc" id="L16">        return saldo;   </span>
+    }
+	
+    public int getStatus(){
+<span class="fc" id="L20">        return status;</span>
+    } 
+
+    public void deposito(int valor) throws INVALID_OPER_EXCEPTION{
+<span class="pc bpc" id="L24" title="1 of 4 branches missed.">        switch(status){</span>
+            case 0:
+<span class="fc bfc" id="L26" title="All 2 branches covered.">                if(valor &lt; 0)</span>
+<span class="fc" id="L27">                    {throw new INVALID_OPER_EXCEPTION(&quot;Morreu&quot;);}</span>
+<span class="fc" id="L28">                saldo = saldo + valor;</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">                if(saldo &gt; 49999)</span>
+<span class="fc" id="L30">                    {status = 1;}    </span>
+                break;
+            case 1:
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">                if(valor &lt; 0)</span>
+<span class="nc" id="L34">                    {throw new INVALID_OPER_EXCEPTION(&quot;Morreu&quot;);}</span>
+<span class="fc" id="L35">                saldo = saldo + (valor * 1.01);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">                if(saldo &gt; 199999)</span>
+<span class="fc" id="L37">                    {status = 2;}</span>
+                break;
+            case 2:
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">                if(valor &lt; 0)</span>
+<span class="nc" id="L41">                    {throw new INVALID_OPER_EXCEPTION(&quot;Morreu&quot;);}</span>
+<span class="fc" id="L42">                saldo = saldo + (valor * 1.025);</span>
+                break;
+        }
+<span class="fc" id="L45">    }</span>
+
+    public void retirada(int valor) throws INVALID_OPER_EXCEPTION{
+<span class="fc bfc" id="L48" title="All 4 branches covered.">        if((saldo - valor) &gt;= 0 &amp;&amp; valor &gt; 0)</span>
+<span class="fc" id="L49">            {saldo = saldo - valor;}</span>
+        else
+<span class="fc" id="L51">            {throw new INVALID_OPER_EXCEPTION(&quot;Morreu&quot;);}</span>
+<span class="fc bfc" id="L52" title="All 4 branches covered.">        if(status == 2 &amp;&amp; saldo &lt; 100000)</span>
+<span class="fc" id="L53">            {status = 1;}</span>
+        else{
+<span class="fc bfc" id="L55" title="All 4 branches covered.">            if(status == 1 &amp;&amp; saldo &lt; 25000)</span>
+<span class="fc" id="L56">                {status = 0;}</span>
+        }
+<span class="fc" id="L58">    }</span>
+
+    public void setStatus(int valor) {
+<span class="fc" id="L61">        status=valor;</span>
+<span class="fc" id="L62">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

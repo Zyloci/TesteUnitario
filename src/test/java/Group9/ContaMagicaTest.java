@@ -77,48 +77,56 @@ public class ContaMagicaTest extends ContaMagica{
     valor>=0 && valor+saldo>=200000 && status=1
     valor>=0 && status=2
    */
-
+    
+    
     @Test
-    public void retiradaValorMenor0Test() 
-    {
-        cM.retirada(-1);
+    public void retiradaValorMenor0Test() throws INVALID_OPER_EXCEPTION{
+        assertThrows(INVALID_OPER_EXCEPTION.class, () -> cM.retirada(-1));
     }
 
     @Test
-    public void retiradaSaldoMenosValorMenor0Test()
-    {
-        
+    public void retiradaSaldoMenosValorMenor0Test() throws INVALID_OPER_EXCEPTION{
+        cM.deposito(10000);
+        assertThrows(INVALID_OPER_EXCEPTION.class, () -> cM.retirada(10001));
     }
 
     @Test
-    public void retiradaStatusIgual0Test()
-    {
-        
+    public void retiradaStatusIgual0Test() throws INVALID_OPER_EXCEPTION{
+        cM.deposito(10000);
+        cM.retirada(5000);
+        assertEquals(cM.getSaldo(), 5000);
     }
 
     @Test
-    public void retiradaSaldoMenosValorMaiorIgual25000StatusIgual1Test()
-    {
-        
+    public void retiradaSaldoMenosValorMaiorIgual25000StatusIgual1Test() throws INVALID_OPER_EXCEPTION{
+        cM.deposito(51000);
+        cM.retirada(25000);
+        assertTrue(cM.getStatus()==1);
     }
 
     @Test
-    public void retiradaSaldoMenosValorMenor25000StatusIgual1Test()
-    {
-        
+    public void retiradaSaldoMenosValorMenor25000StatusIgual1Test() throws INVALID_OPER_EXCEPTION{
+        cM.deposito(51000);
+        cM.retirada(27000);
+        assertTrue(cM.getStatus()==0);
     }
 
     @Test
-    public void retiradaSaldoMenosValorMaiorIgual100000StatusIgual2Test()
-    {
-        
+    public void retiradaSaldoMenosValorMaiorIgual100000StatusIgual2Test() throws INVALID_OPER_EXCEPTION{
+        cM.deposito(200000);
+        cM.setStatus(2);
+        cM.retirada(99000);
+        assertTrue(cM.getStatus()==2);
     }
 
     @Test
-    public void retiradaSaldoMenosValorMenor100000StatusIgual2Test()
-    {
-        
+    public void retiradaSaldoMenosValorMenor100000StatusIgual2Test() throws INVALID_OPER_EXCEPTION{
+        cM.deposito(200000);
+        cM.setStatus(2);
+        cM.retirada(151000);
+        assertTrue(cM.getStatus()==1);
     }
+
     /*
     valor<0
     saldo-valor<0

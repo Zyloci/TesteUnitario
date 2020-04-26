@@ -5,7 +5,8 @@ CASOS DE TESTE
     Particionamento do Espaço de Entrada
 
     Teste de Deposito:
-    valor<0 
+    valor<0
+    valor>=200000 && status=0(Added)
     valor>=0 && valor+saldo<50000 && status=0
     valor>=0 && valor+saldo>=50000 && status=0
     valor>=0 && valor+saldo<200000 && status=1
@@ -14,7 +15,7 @@ CASOS DE TESTE
    
     Teste de Retirada:
     valor<0
-    saldo-valor<0
+    saldo-valor<0(Added)
     valor>=0 && saldo-valor>=0 && status=0
     valor>=0 && saldo-valor>=25000 && status=1
     valor>=0 && saldo-valor<25000 && status=1
@@ -24,6 +25,7 @@ CASOS DE TESTE
     Teste de Gets:
     getSaldo
     getStatus
+    setStatus(Added)
 
 
 relatórios de defeitos (até que todos foram eliminados)
