@@ -56,4 +56,8 @@ public class ContaMagica {
                 {status = 0;}
         }
     }
+
+    public void setStatus(int valor) {
+        status=valor;
+    }
 }
