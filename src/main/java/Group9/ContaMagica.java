@@ -7,7 +7,10 @@ public class ContaMagica {
     public static double saldo;
     public static int status;
 
-    public ContaMagica(){}
+    public ContaMagica(){
+        this.saldo = 0;
+        this.status = 0;
+    }
 
     public double getSaldo(){
         return saldo;   
