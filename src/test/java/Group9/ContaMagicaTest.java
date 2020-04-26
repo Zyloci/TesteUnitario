@@ -30,28 +30,42 @@ public class ContaMagicaTest extends ContaMagica{
     }
 
     @Test
-    public void SaldoMenor50000Deposito() throws INVALID_OPER_EXCEPTION{
-        assertTrue(cM.getSaldo()<50000);
+    public void SaldoMenor50000Deposito() throws INVALID_OPER_EXCEPTION{ 
+        cM.deposito(1);
+        assertTrue(cM.getSaldo()==1 && cM.getStatus()==0);
+    }
+
+    @Test
+    public void SaldoMaior200000DepositoStatusJump() throws INVALID_OPER_EXCEPTION{ 
+        cM.deposito(200001);
+        assertTrue(cM.getStatus()==1);
     }
 
     @Test
     public void SaldoMaior50000Deposito() throws INVALID_OPER_EXCEPTION{
-        assertTrue(cM.getSaldo()>50000);
+        cM.deposito(51000);
+        assertTrue(cM.getSaldo()==51000 && cM.getStatus()==1);
     }
 
     @Test
     public void SaldoMenor200000Deposito() throws INVALID_OPER_EXCEPTION{
-        assertTrue(cM.getSaldo()<200000);
+        cM.setStatus(1);
+        cM.deposito(51000);
+        assertTrue(cM.getSaldo()==(51000 *1.01) && cM.getStatus()==1);
     }
 
     @Test
     public void SaldoMaior200000Deposito() throws INVALID_OPER_EXCEPTION{
-        assertTrue(cM.getSaldo()>200000);
+        cM.setStatus(1);
+        cM.deposito(5100000);
+        assertTrue(cM.getSaldo()==(5100000 *1.01) && cM.getStatus()==2);
     }
 
     @Test
     public void Status2() throws INVALID_OPER_EXCEPTION{
-        assertTrue(cM.getStatus()==2);
+        cM.setStatus(2);
+        cM.deposito(10000);
+        assertTrue(cM.getSaldo()== 10000 *1.025);
     }
 
     /*
@@ -65,9 +79,9 @@ public class ContaMagicaTest extends ContaMagica{
    */
 
     @Test
-    public void retiradaValorMenor0Test() throws INVALID_OPER_EXCEPTION
+    public void retiradaValorMenor0Test() 
     {
-        assertThrows(INVALID_OPER_EXCEPTION.class, () -> cM.retirada(-1));
+        cM.retirada(-1);
     }
 
     @Test
