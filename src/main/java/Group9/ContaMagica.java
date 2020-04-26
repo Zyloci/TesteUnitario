@@ -19,14 +19,14 @@ public class ContaMagica {
         switch(status){
             case 0:
                 if(valor < 0)
-                    {           }
+                    {throw new INVALID_OPER_EXCEPTION("Morreu");}
                 saldo = saldo + valor;
                 if(saldo > 49999)
                     {status = 1;}    
                 break;
             case 1:
                 if(valor < 0)
-                    {           }
+                    {throw new INVALID_OPER_EXCEPTION("Morreu");}
                 saldo = saldo + valor;
                 if(saldo > 199999)
                     {status = 2;}
@@ -35,7 +35,7 @@ public class ContaMagica {
                 break;
             case 2:
                 if(valor < 0)
-                    {           }
+                    {throw new INVALID_OPER_EXCEPTION("Morreu");}
                 saldo = saldo + valor;
                 if(saldo < 200000)
                     {status = 1;}
