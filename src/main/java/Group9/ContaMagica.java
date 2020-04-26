@@ -8,8 +8,8 @@ public class ContaMagica {
     public static int status;
 
     public ContaMagica(){
-        this.saldo = 0;
-        this.status = 0;
+        saldo = 0;
+        status = 0;
     }
 
     public double getSaldo(){

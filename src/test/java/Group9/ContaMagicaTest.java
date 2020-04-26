@@ -65,9 +65,9 @@ public class ContaMagicaTest extends ContaMagica{
    */
 
     @Test
-    public void retiradaValorMenor0Test() 
+    public void retiradaValorMenor0Test() throws INVALID_OPER_EXCEPTION
     {
-        cM.retirada(-1);
+        assertThrows(INVALID_OPER_EXCEPTION.class, () -> cM.retirada(-1));
     }
 
     @Test
