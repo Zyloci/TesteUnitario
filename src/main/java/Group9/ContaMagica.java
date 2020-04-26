@@ -43,7 +43,7 @@ public class ContaMagica {
         }
     }
 
-    void retirada(int valor) throws INVALID_OPER_EXCEPTION
+    public void retirada(int valor) throws INVALID_OPER_EXCEPTION
     {
         if((saldo - valor) > 0)
             saldo = saldo - valor;
