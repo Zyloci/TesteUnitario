@@ -26,15 +26,16 @@ CASOS DE TESTE INICIAS
     setStatus
 
 ANALISE DE COBERTURA DO CÓDIGO
-    -Primeiros testes
+    -1º teste
         Instructions Coverage 90%
         Branch Coverage 88%
+    -2º teste
+        Instructions Coverage 100%
+        Branch Coverage 96%
+    -3º teste
+        Instructions Coverage 100%
+        Branch Coverage 100%    
 
 NOVOS CASOS DE TESTE
-
-novos casos de teste acrescentados (com justificativa) ou justificativa para a não necessidade de acrescentar casos de teste.
-
-
-Código do driver de teste implementado
-
-Código da classe implementada
+    valor<0 && status=1 (Segundo teste do JaCoCo)
+    valor<0 && status=2 (Segundo teste do JaCoCo)

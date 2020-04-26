@@ -22,7 +22,7 @@ public class ContaMagica {
 
     public void deposito(int valor) throws INVALID_OPER_EXCEPTION{
         switch(status){
-            case 0:
+            default:
                 if(valor < 0)
                     {throw new INVALID_OPER_EXCEPTION("Morreu");}
                 saldo = saldo + valor;
